@@ -5,7 +5,7 @@ const userRoutes=require("./routes/userRoutes")
 const typeRoutes=require("./routes/typeRoutes")
 const dotenv=require("dotenv")
 const connectDb=require("./config/db")
-const port=3000
+const port = process.env.PORT || 3000;
 dotenv.config();
 app.use(cors())
 
