@@ -103,7 +103,7 @@ function Challenges() {
             readOnly
             className="mt-4 sm:mt-0 bg-white text-purple-600 px-5 py-2 rounded-full font-medium shadow-md hover:bg-gray-100 transition text-decoration-none"
           >
-            Comming Soon
+            Coming Soon
           </Link>
         </div>
       </div>
