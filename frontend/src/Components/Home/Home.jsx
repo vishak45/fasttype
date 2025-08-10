@@ -19,7 +19,12 @@ function Home() {
   const handleKeyDown = (e) => {
     if (!isActive) setIsActive(true);
 
-   if (e.key === " "|| e.key === "NumpadEnter")  {
+  if (
+  e.key === " " || 
+  e.code === "Space" || 
+  e.key === "Enter" || 
+  e.code === "NumpadEnter"
+)  {
       e.preventDefault();
 
       const newTypedWords = [...typedWords, currentWord];
