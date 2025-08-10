@@ -179,7 +179,11 @@ function Home() {
   </div>
 </div>
 
-
+ <div className="d-flex justify-content-center w-100 text-center mb-4 mt-4">
+  <p className="fw-bold">
+    <span className="text-orange-600">Finished typing?</span> Press the spacebar to submit instantly—no need to wait for the timer to end 😜!
+  </p>
+</div>
       {/* Typing Test Box */}
       <div className="mx-auto max-w-3xl bg-white p-6 rounded-xl shadow-lg border border-gray-200">
         <div className="bg-yellow-50 border border-orange-400 rounded-lg p-5 min-h-[120px] text-lg text-gray-900 mb-4 shadow-inner leading-relaxed flex flex-wrap gap-2">
