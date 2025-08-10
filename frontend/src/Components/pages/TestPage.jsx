@@ -48,7 +48,7 @@ const [showInput, setShowInput] = useState(true);
   const handleKeyDown = (e) => {
     if (!isActive) setIsActive(true);
 
-    if (e.key === " "|| e.key === "NumpadEnter")  {
+    if (e.key === " " || e.code === "Space")   {
       e.preventDefault();
 
       const newTypedWords = [...typedWords, currentWord];
