@@ -25,6 +25,7 @@ const [showInput, setShowInput] = useState(true);
   // Fetch test data
   useEffect(() => {
     if(!token) navigate('/login');
+     window.scrollTo(0, 0);
     const fetchData = async () => {
       try {
         const response = await axiosInstance.get(`/tests/type/specific/${id}`,{
