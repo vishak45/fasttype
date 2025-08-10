@@ -101,32 +101,32 @@ const [showInput, setShowInput] = useState(true);
   useEffect(() => {
       const setAnimal=()=>{
     console.log(wpm);
-    if(wpm<20 && wpm>0){
+    if(wpm<=20 && wpm>0){
         setImg({
             src:turtle,
             description:"You are a turtle 🐢"
            
         })
     }
-    else if(wpm<40 && wpm>20){
+    else if(wpm<=40 && wpm>20){
         setImg({
             src:rabbit  ,
             description:"You are a rabbit 🐇"
         })
     }
-    else if(wpm<60 && wpm>40){
+    else if(wpm<=60 && wpm>40){
         setImg({
             src:fox,
             description:"You are a fox 🦊"
         })
     }
-    else if(wpm<80 && wpm>60){
+    else if(wpm<=80 && wpm>60){
         setImg({
             src:leopard,
             description:"You are a leopard 🐆"
         })
     }
-    else if(wpm<100 && wpm>80){
+    else if(wpm<=100 && wpm>80){
          setImg({
             src:falcon,
             description:"You are a falcon 🦅"
