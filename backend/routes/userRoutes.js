@@ -1,0 +1,10 @@
+const express=require("express")
+const router=express.Router()
+const protect=require("../middleware/middleWare")
+const {registerUser,loginUser}=require("../controller/userController")
+const {createTypingTest,fetchTypingTest}=require("../controller/typingController")
+router.post("/register",registerUser)
+router.post("/login",loginUser)
+router.post("/tests/type/add",protect,createTypingTest)
+router.get("/tests/fetch",protect,fetchTypingTest)
+module.exports=router
