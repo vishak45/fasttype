@@ -16,6 +16,27 @@ function Home() {
   const [accuracy, setAccuracy] = useState(null);
   const timerRef = useRef(null);
   const [showInput,setShowInput]=useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+  const checkMobile = () => {
+    if (window.innerWidth <= 768) { // 768px is a common mobile breakpoint
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  };
+
+  // Check on mount
+  checkMobile();
+
+  // Also check on window resize
+  window.addEventListener("resize", checkMobile);
+
+  return () => {
+    window.removeEventListener("resize", checkMobile);
+  };
+}, []);
+
   const handleKeyDown = (e) => {
     if (!isActive) setIsActive(true);
 
@@ -190,16 +211,32 @@ function Home() {
           {renderWords()}
         </div>
 
-       {
-        showInput&&( <input
-          value={currentWord}
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
-          className="w-full border-2 border-orange-400 rounded-lg p-3 text-gray-900 text-base focus:outline-none focus:ring-2 focus:ring-orange-300"
-          placeholder="Start typing here..."
-          disabled={timeLeft === 0}
-        />)
-       }
+      {
+  isMobile ? (
+    <div className="flex flex-col justify-center items-center text-center">
+    <p className=" text-grey-600 mb-4">
+       please switch to desktop or laptop.<br/> But You can view your progress stats.
+    </p>
+    <Link
+      to="/stats"
+      className="mt-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold text-decoration-none"
+    >
+      View Your Progress Stats
+    </Link>
+  </div>
+  ) : (
+    showInput && (
+      <input
+        value={currentWord}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+        className="w-full border-2 border-orange-400 rounded-lg p-3 text-gray-900 text-base focus:outline-none focus:ring-2 focus:ring-orange-300"
+        placeholder="Start typing here..."
+        disabled={timeLeft === 0}
+      />
+    )
+  )
+}
 
         <div className="flex justify-between items-center mt-3 font-semibold text-gray-700">
           <span>
