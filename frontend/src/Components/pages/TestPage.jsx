@@ -48,7 +48,7 @@ const [showInput, setShowInput] = useState(true);
   const handleKeyDown = (e) => {
     if (!isActive) setIsActive(true);
 
-    if (e.key === " " || e.code === "Space")   {
+   if (e.key === " ")   {
       e.preventDefault();
 
       const newTypedWords = [...typedWords, currentWord];
