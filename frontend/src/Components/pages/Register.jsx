@@ -13,6 +13,7 @@ function Register() {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [error, setError] = useState('');
+   const [showLoading, setShowLoading] = useState(false);
 
   useEffect(() => {
     if (success === true) {
@@ -30,6 +31,7 @@ function Register() {
     if (success === false) {
       setError('Email already exists');
         setSuccess()
+        setShowLoading(false)
 
     }
   }, [success]);
@@ -70,6 +72,7 @@ function Register() {
 
     // All validations passed — call register function
     registerUSer(name, email, password);
+    setShowLoading(true);
   };
 
   return (
@@ -142,7 +145,21 @@ function Register() {
           </div>
 
           {/* Submit Button */}
-          <button
+          {
+            showLoading ? (
+           <button
+               readonly
+            type="submit"
+            className="w-full font-bold py-2 rounded-lg"
+            style={{
+              backgroundColor: '#aaa49bff',
+              color: '#ffffffff',
+              border: 'none',
+            }}
+          >
+            Loading
+          </button>
+            ):( <button
             type="submit"
             className="w-full font-bold py-2 rounded-lg"
             style={{
@@ -152,7 +169,9 @@ function Register() {
             }}
           >
             Register
-          </button>
+          </button>)
+          }
+         
         </form>
 
         {/* Login Link */}

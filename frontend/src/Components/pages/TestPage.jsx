@@ -237,7 +237,15 @@ const [img, setImg] = useState({});
     });
   };
 
-  if (!data) return <p>Loading...</p>;
+if (!data)
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <p className="text-2xl font-bold text-gray-700 animate-pulse">
+        Loading...
+      </p>
+    </div>
+  );
+
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10 min-h-screen">

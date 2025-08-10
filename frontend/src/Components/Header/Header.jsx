@@ -15,12 +15,14 @@ function Header() {
     localStorage.removeItem("user");
 
     window.location.reload(); 
+    
   };
 
   return (
     <nav className="shadow-md" style={{ background: "#FFA500" }}>
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         {/* Brand */}
+       
         <Link
           to="/"
           className="font-bold text-lg"

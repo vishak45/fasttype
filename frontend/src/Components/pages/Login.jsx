@@ -3,6 +3,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import useUserAuth from '../lib/userAuth';
 import { toast } from 'react-toastify';
 
+
 function Login() {
   const navigate=useNavigate()
   const token = useUserAuth((state) => state.token);
@@ -10,7 +11,7 @@ function Login() {
   const loginUSer = useUserAuth((state) => state.loginUSer);
   const success = useUserAuth((state) => state.success);
   const setSuccess = useUserAuth((state) => state.setSuccess);
-  
+  const [showLoading, setShowLoading] = useState(false);
   const [error, setError] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -34,6 +35,7 @@ function Login() {
       console.log('Invalid email or password')
       setError('Invalid email or password')
       setSuccess(null)
+      setShowLoading(false)
     }
     else if(success==null)
     {
@@ -50,8 +52,8 @@ function Login() {
 
         {/* Form */}
         <form className="space-y-5" onSubmit={(e) => {e.preventDefault()
-        loginUSer(email,password)}
-
+        loginUSer(email,password);  setShowLoading(true);}
+         
         }>
           <div style={{ color: 'red' }}>{error}</div>
           {/* Email */}
@@ -83,7 +85,21 @@ function Login() {
           </div>
 
           {/* Submit Button */}
-          <button
+          {
+            showLoading ? (
+               <button
+               readonly
+            type="submit"
+            className="w-full font-bold py-2 rounded-lg"
+            style={{
+              backgroundColor: '#aaa49bff',
+              color: '#ffffffff',
+              border: 'none',
+            }}
+          >
+            Loading
+          </button>
+            ):(  <button
             type="submit"
             className="w-full font-bold py-2 rounded-lg"
             style={{
@@ -93,7 +109,9 @@ function Login() {
             }}
           >
             Login
-          </button>
+          </button>)
+          }
+        
         </form>
 
         {/* Signup Link */}
