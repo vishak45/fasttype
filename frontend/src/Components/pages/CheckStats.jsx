@@ -29,7 +29,7 @@ function CheckStats() {
       navigate("/login");
       return;
     }
-
+ window.scrollTo(0, 0);
     const fetchData = async () => {
       try {
         const response = await axiosInstance.get("/users/tests/fetch", {
