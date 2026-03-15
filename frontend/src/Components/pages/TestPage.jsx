@@ -152,6 +152,12 @@ const [showInput, setShowInput] = useState(true);
             description:"You are a falcon 🦅"
         })
     }
+    else if(wpm==0){
+         setImg({
+            src:"",
+            description:"Oops! You didn't type anything"
+        })
+    }
     else{
          setImg({
             src:cheetah,
