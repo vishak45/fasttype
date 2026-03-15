@@ -119,56 +119,50 @@ const [showInput, setShowInput] = useState(true);
    
   };
   useEffect(() => {
-      const setAnimal=()=>{
-    console.log(wpm);
-    if(wpm<=20 && wpm>0){
+    const setAnimal = () => {
+
+      if (wpm === null || wpm === undefined) return;
+
+      if (wpm <= 20 && wpm > 0) {
         setImg({
-            src:turtle,
-            description:"You are a turtle 🐢"
-           
-        })
-    }
-    else if(wpm<=40 && wpm>20){
+          src: turtle,
+          description: "You are a turtle 🐢",
+        });
+      } else if (wpm <= 40 && wpm > 20) {
         setImg({
-            src:rabbit  ,
-            description:"You are a rabbit 🐇"
-        })
-    }
-    else if(wpm<=60 && wpm>40){
+          src: rabbit,
+          description: "You are a rabbit 🐇",
+        });
+      } else if (wpm <= 60 && wpm > 40) {
         setImg({
-            src:fox,
-            description:"You are a fox 🦊"
-        })
-    }
-    else if(wpm<=80 && wpm>60){
+          src: fox,
+          description: "You are a fox 🦊",
+        });
+      } else if (wpm <= 80 && wpm > 60) {
         setImg({
-            src:leopard,
-            description:"You are a leopard 🐆"
-        })
-    }
-    else if(wpm<=100 && wpm>80){
-         setImg({
-            src:falcon,
-            description:"You are a falcon 🦅"
-        })
-    }
-    else if(wpm==0){
-         setImg({
-            src:"",
-            description:"Oops! You didn't type anything"
-        })
-    }
-    else{
-         setImg({
-            src:cheetah,
-            description:"You are a cheetah 🐆"
-        })
-    }
-}
-    
+          src: leopard,
+          description: "You are a leopard 🐆",
+        });
+      } else if (wpm <= 100 && wpm > 80) {
+        setImg({
+          src: falcon,
+          description: "You are a falcon 🦅",
+        });
+      } else if (wpm === 0) {
+        setImg({
+          src: "",
+          description: "Oops! You didn't type anything",
+        });
+      } else {
+        setImg({
+          src: cheetah,
+          description: "You are a cheetah 🐆",
+        });
+      }
+    };
+
     setAnimal();
-   
-  },[wpm]);
+  }, [wpm]);
   useEffect(()=>{
    let accuracyMessage = "";
 
